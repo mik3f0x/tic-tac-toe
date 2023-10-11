@@ -15,34 +15,16 @@
 .square {
     height: 200px;
     width: 200px;
-    border: solid 4px white;
+    /* border: solid 4px white; */
     display: grid;
     grid-template-rows: repeat(3, 200px);
     background-color: black;
 }
 
-
-
-#a0-1 {
-    background-color: aqua;
-}
-
-/* #top-left
-
-#top-middle, #middle, #bottom-middle, #top-right, #middle-right, #bottom-right {
+#r0c1, #r1c1, #r2c1, #r0c2, #r1c2, #r2c2 {
     border-left: solid 4px white;
 }
 
-
-
-#middle-left
-
-
-
-
-
-#bottom-left */
-
-
-
-
+#r0c0, #r0c1, #r0c2, #r1c0, #r1c1, #r1c2 {
+    border-bottom: solid 4px white;
+}
