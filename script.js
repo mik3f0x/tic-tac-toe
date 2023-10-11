@@ -3,15 +3,14 @@ const o = 5
 
 const board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
-
 let turn = true
 let count = 0
+const delay = 1000
 
 const square = document.querySelectorAll(".square")
 const reset = document.getElementById("reset")
 const message = document.getElementById("turn-message")
-const autoReload = document.getElementById("auto-restart");
-
+const autoReload = document.getElementById("auto-restart")
 
 reset.onclick = () => { newGame() }
 
@@ -22,13 +21,12 @@ function newGame() {
     square.forEach((el) => {
         el.addEventListener('click', handleClick);
         el.style.backgroundColor = 'black';
-        el.innerText = el.id 
         for (i = 0; i < 3; i++) {
             for (j = 0; j < 3; j++) {
                 board[i][j] = 0
             }
         }
-    });
+    })
 }
 
 newGame();
@@ -43,6 +41,8 @@ function winTest(row, col, xo) {
 }
 
 function handleClick(e) {
+    count += 1
+
     e.target.removeEventListener('click', handleClick)
 
     const row = parseInt(e.target.id.charAt(1))
@@ -55,9 +55,11 @@ function handleClick(e) {
             message.innerText = 'RED WINS!'
             square.forEach((el) => {el.removeEventListener('click', handleClick)})
             count = 9
-            // newGame()
             if (autoReload.checked == true) setTimeout(function() { newGame() }, delay)
-        } else if (count > 8) message.innerHTML = "It's a tie &#129335"
+        } else if (count > 8) {
+            message.innerHTML = "It's a tie &#129335"
+            if (autoReload.checked == true) setTimeout(function() { newGame() }, delay)
+        }
         turn = false
         if (count < 9) message.innerText = "It's Blue's turn"
     }
@@ -68,16 +70,12 @@ function handleClick(e) {
             message.innerText = 'BLUE WINS!'
             square.forEach((el) => {el.removeEventListener('click', handleClick)})
             count = 9
-            // newGame()
             if (autoReload.checked == true) setTimeout(function() { newGame() }, delay)
-        } else if (count > 8) message.innerHTML = "It's a tie &#129335"
+        } else if (count > 8) {
+            message.innerHTML = "It's a tie &#129335"
+            if (autoReload.checked == true) setTimeout(function() { newGame() }, delay)
+        }
         turn = true
         if (count < 9) message.innerText = "It's Red's turn"
     }
-
-    count += 1
-    console.log(board)
 }
-
-const delay = 1000; //1 second
-
