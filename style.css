@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+  body {
+    background-color: black;
+    color: white;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+}
+
+.square {
+    height: 200px;
+    width: 200px;
+    border: solid 4px white;
+    display: grid;
+    grid-template-rows: repeat(3, 200px);
+    background-color: black;
+}
+
+
+
+#a0-1 {
+    background-color: aqua;
+}
+
+/* #top-left
+
+#top-middle, #middle, #bottom-middle, #top-right, #middle-right, #bottom-right {
+    border-left: solid 4px white;
+}
+
+
+
+#middle-left
+
+
+
+
+
+#bottom-left */
+
+
+
+
