@@ -71,6 +71,7 @@ function handleClick(e) {
     }
 
     count += 1
-    // if (count > 8) message.innerText = ''
+    if (count > 8) message.innerHTML = "It's a tie &#129335"
     console.log(board)
 }
+
