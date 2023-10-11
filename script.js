@@ -18,14 +18,10 @@ function newGame() {
     turn = true
     count = 0
     message.innerText = ''
+    board.forEach((el) => el.fill(0))
     square.forEach((el) => {
         el.addEventListener('click', handleClick);
         el.style.backgroundColor = 'black';
-        for (i = 0; i < 3; i++) {
-            for (j = 0; j < 3; j++) {
-                board[i][j] = 0
-            }
-        }
     })
 }
 
