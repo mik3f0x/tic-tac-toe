@@ -15,14 +15,15 @@ const autoReload = document.getElementById("auto-restart")
 reset.onclick = () => { newGame() }
 
 function newGame() {
-    // turn = true
     count = 0
-    message.innerText = ''
     board.forEach((el) => el.fill(0))
     square.forEach((el) => {
         el.addEventListener('click', handleClick);
         el.style.backgroundColor = 'black';
     })
+    
+    if (turn) message.innerText = "Red goes first"
+    else message.innerText = "Blue goes first"
 }
 
 newGame();
