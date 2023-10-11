@@ -10,12 +10,15 @@ let count = 0
 const square = document.querySelectorAll(".square")
 const reset = document.getElementById("reset")
 const message = document.getElementById("turn-message")
+const autoReload = document.getElementById("auto-restart");
+
 
 reset.onclick = () => { newGame() }
 
 function newGame() {
     turn = true
     count = 0
+    message.innerText = ''
     square.forEach((el) => {
         el.addEventListener('click', handleClick);
         el.style.backgroundColor = 'black';
@@ -53,7 +56,8 @@ function handleClick(e) {
             square.forEach((el) => {el.removeEventListener('click', handleClick)})
             count = 9
             // newGame()
-        }
+            if (autoReload.checked == true) setTimeout(function() { newGame() }, delay)
+        } else if (count > 8) message.innerHTML = "It's a tie &#129335"
         turn = false
         if (count < 9) message.innerText = "It's Blue's turn"
     }
@@ -65,13 +69,15 @@ function handleClick(e) {
             square.forEach((el) => {el.removeEventListener('click', handleClick)})
             count = 9
             // newGame()
-        }
+            if (autoReload.checked == true) setTimeout(function() { newGame() }, delay)
+        } else if (count > 8) message.innerHTML = "It's a tie &#129335"
         turn = true
         if (count < 9) message.innerText = "It's Red's turn"
     }
 
     count += 1
-    if (count > 8) message.innerHTML = "It's a tie &#129335"
     console.log(board)
 }
+
+const delay = 1000; //1 second
 
