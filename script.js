@@ -5,7 +5,7 @@ const board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
 let turn = true
 let count = 0
-const delay = 2000
+const delay = 2500
 
 const square = document.querySelectorAll(".square")
 const reset = document.getElementById("reset")
@@ -16,6 +16,8 @@ reset.onclick = () => { newGame() }
 
 function newGame() {
     count = 0
+    document.body.style.setProperty('--grid-color', 'white')
+    reset.style.color = 'black'
     board.forEach((el) => el.fill(0))
     square.forEach((el) => {
         el.addEventListener('click', handleClick);
@@ -50,6 +52,7 @@ function handleClick(e) {
         board[row][col] = x
         if (winTest(row, col, x)) {
             message.innerText = 'X WINS!'
+            document.body.style.setProperty('--grid-color', 'red')
             square.forEach((el) => {el.removeEventListener('click', handleClick)})
             count = 9
             if (autoReload.checked == true) setTimeout(function() { newGame() }, delay)
@@ -65,6 +68,8 @@ function handleClick(e) {
         board[row][col] = o
         if (winTest(row, col, o)) {
             message.innerText = 'O WINS!'
+            document.body.style.setProperty('--grid-color', 'blue')
+            reset.style.color = 'white'
             square.forEach((el) => {el.removeEventListener('click', handleClick)})
             count = 9
             if (autoReload.checked == true) setTimeout(function() { newGame() }, delay)

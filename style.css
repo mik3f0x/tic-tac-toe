@@ -7,7 +7,8 @@ body {
     grid-template-columns: 260px 1fr 260px;
     background-color: black;
     font-family: "Audiowide", sans-serif;
-    color: white;
+    --grid-color: white;
+    color: var(--grid-color);
 }
 
 #sidebar > * {
@@ -16,6 +17,10 @@ body {
 
 button {
     margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    font-family: "Audiowide", sans-serif;
+    background-color: var(--grid-color);
 }
 
 #board {
@@ -35,31 +40,31 @@ button {
 }
 
 #r1c1 {
-    border: solid 4px white;
+    border: solid 4px var(--grid-color);
 }
 
 #r0c1 {
-    border-left: solid 4px white;
-    border-right: solid 4px white;
-    border-image: linear-gradient(to top, white, black) 1;
+    border-left: solid 4px var(--grid-color);
+    border-right: solid 4px var(--grid-color);
+    border-image: linear-gradient(to top, var(--grid-color), black) 1;
 }
 
 #r1c0 {
-    border-top: solid 4px white;
-    border-bottom: solid 4px white;
-    border-image: linear-gradient(to left, white, black) 1;  
+    border-top: solid 4px var(--grid-color);
+    border-bottom: solid 4px var(--grid-color);
+    border-image: linear-gradient(to left, var(--grid-color), black) 1;  
 }
 
 #r1c2 {
-    border-top: solid 4px white;
-    border-bottom: solid 4px white;
-    border-image: linear-gradient(to right, white, black) 1;  
+    border-top: solid 4px var(--grid-color);
+    border-bottom: solid 4px var(--grid-color);
+    border-image: linear-gradient(to right, var(--grid-color), black) 1;  
 }
 
 #r2c1 {
-    border-left: solid 4px white;
-    border-right: solid 4px white;
-    border-image: linear-gradient(to bottom, white, black) 1;  
+    border-left: solid 4px var(--grid-color);
+    border-right: solid 4px var(--grid-color);
+    border-image: linear-gradient(to bottom, var(--grid-color), black) 1;  
 }
 
 @media screen and (max-width: 700px) {
