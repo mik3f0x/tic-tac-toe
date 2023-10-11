@@ -61,3 +61,20 @@ button {
     border-right: solid 4px white;
     border-image: linear-gradient(to bottom, white, black) 1;  
 }
+
+@media screen and (max-width: 700px) {
+    body {
+        grid-template-columns: none;
+        grid-template-rows: 260px 1fr 0px;
+    }
+
+    #board {
+        grid-template-columns: repeat(3, 100px);
+    }
+
+    .square {
+        height: 100px;
+        width: 100px;
+        background-size: 200%;
+    }
+}
