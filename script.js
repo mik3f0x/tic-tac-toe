@@ -1,7 +1,7 @@
 const x = 1
 const o = 5
 
-const arr = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+const board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
 
 let turn = true
@@ -22,7 +22,7 @@ function newGame() {
         el.innerText = el.id 
         for (i = 0; i < 3; i++) {
             for (j = 0; j < 3; j++) {
-                arr[i][j] = 0
+                board[i][j] = 0
             }
         }
     });
@@ -30,12 +30,12 @@ function newGame() {
 
 newGame();
 
-function sumArrays(row, col, xo) {
+function winTest(row, col, xo) {
     xo = xo * 3
-    if (arr[row][0] + arr[row][1] + arr[row][2] === xo) return true
-    else if (arr[0][col] + arr[1][col] + arr[2][col] === xo) return true
-    else if (arr[0][0] + arr[1][1] + arr[2][2] === xo) return true
-    else if (arr[0][2] + arr[1][1] + arr[2][0] === xo) return true
+    if (board[row][0] + board[row][1] + board[row][2] === xo) return true
+    else if (board[0][col] + board[1][col] + board[2][col] === xo) return true
+    else if (board[0][0] + board[1][1] + board[2][2] === xo) return true
+    else if (board[0][2] + board[1][1] + board[2][0] === xo) return true
     else return false
 }
 
@@ -47,9 +47,11 @@ function handleClick(e) {
 
     if (turn) {
         e.target.style.backgroundColor = 'red'
-        arr[row][col] = x
-        if (sumArrays(row, col, x)) {
-            console.log('RED WINS!')
+        board[row][col] = x
+        if (winTest(row, col, x)) {
+            message.innerText = 'RED WINS!'
+            square.forEach((el) => {el.removeEventListener('click', handleClick)})
+            count = 9
             // newGame()
         }
         turn = false
@@ -57,16 +59,18 @@ function handleClick(e) {
     }
     else {
         e.target.style.backgroundColor = 'blue'
-        arr[row][col] = o
-        if (sumArrays(row, col, o)) {
-            console.log('BLUE WINS!')
-            newGame()
+        board[row][col] = o
+        if (winTest(row, col, o)) {
+            message.innerText = 'BLUE WINS!'
+            square.forEach((el) => {el.removeEventListener('click', handleClick)})
+            count = 9
+            // newGame()
         }
         turn = true
         if (count < 9) message.innerText = "It's Red's turn"
     }
 
     count += 1
-    if (count > 8) message.innerText = ''
-    console.log(arr)
+    // if (count > 8) message.innerText = ''
+    console.log(board)
 }
