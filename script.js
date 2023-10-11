@@ -19,11 +19,11 @@ function newGame() {
     board.forEach((el) => el.fill(0))
     square.forEach((el) => {
         el.addEventListener('click', handleClick);
-        el.style.backgroundColor = 'black';
+        el.style.backgroundImage = 'none'
     })
     
-    if (turn) message.innerText = "Red goes first"
-    else message.innerText = "Blue goes first"
+    if (turn) message.innerText = "X goes first"
+    else message.innerText = "O goes first"
 }
 
 newGame();
@@ -46,10 +46,10 @@ function handleClick(e) {
     const col = parseInt(e.target.id.charAt(3))
 
     if (turn) {
-        e.target.style.backgroundColor = 'red'
+        e.target.style.backgroundImage = "url(red_x.jpeg)"
         board[row][col] = x
         if (winTest(row, col, x)) {
-            message.innerText = 'RED WINS!'
+            message.innerText = 'X WINS!'
             square.forEach((el) => {el.removeEventListener('click', handleClick)})
             count = 9
             if (autoReload.checked == true) setTimeout(function() { newGame() }, delay)
@@ -58,13 +58,13 @@ function handleClick(e) {
             if (autoReload.checked == true) setTimeout(function() { newGame() }, delay)
         }
         turn = false
-        if (count < 9) message.innerText = "It's Blue's turn"
+        if (count < 9) message.innerText = "It's O's turn"
     }
     else {
-        e.target.style.backgroundColor = 'blue'
+        e.target.style.backgroundImage = "url(blue_o.jpeg)"
         board[row][col] = o
         if (winTest(row, col, o)) {
-            message.innerText = 'BLUE WINS!'
+            message.innerText = 'O WINS!'
             square.forEach((el) => {el.removeEventListener('click', handleClick)})
             count = 9
             if (autoReload.checked == true) setTimeout(function() { newGame() }, delay)
@@ -73,6 +73,6 @@ function handleClick(e) {
             if (autoReload.checked == true) setTimeout(function() { newGame() }, delay)
         }
         turn = true
-        if (count < 9) message.innerText = "It's Red's turn"
+        if (count < 9) message.innerText = "It's X's turn"
     }
 }
