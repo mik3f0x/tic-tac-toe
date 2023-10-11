@@ -8,13 +8,15 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>Tic-Tac-Toe</h1>
-    <button id="reset">New game</button>
-    <div>
-        <label for="auto-restart">Auto Reload?</label>
-        <input type="checkbox" id="auto-restart" name="auto-restart" checked />
+    <div id="sidebar">
+        <h1>Tic-Tac-Toe</h1>
+        <button id="reset">New game</button>
+        <div>
+            <label for="auto-restart">Auto Reload?</label>
+            <input type="checkbox" id="auto-restart" name="auto-restart" checked />
+        </div>
+        <h2 id="turn-message"></h2>
     </div>
-    <h2 id="turn-message"></h2>
     <div id="board">
         <div class="square" id="r0c0"></div>
         <div class="square" id="r0c1"></div>
@@ -26,5 +28,6 @@
         <div class="square" id="r2c1"></div>
         <div class="square" id="r2c2"></div>
     </div>
+    <div id="bumper"></div>
 </body>
 </html>
