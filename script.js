@@ -42,8 +42,8 @@ function sumArrays(row, col, xo) {
 function handleClick(e) {
     e.target.removeEventListener('click', handleClick)
 
-    const row = parseInt(e.target.id.charAt(0))
-    const col = parseInt(e.target.id.charAt(2))
+    const row = parseInt(e.target.id.charAt(1))
+    const col = parseInt(e.target.id.charAt(3))
 
     if (turn) {
         e.target.style.backgroundColor = 'red'
