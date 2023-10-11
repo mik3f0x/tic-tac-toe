@@ -15,7 +15,7 @@ const autoReload = document.getElementById("auto-restart")
 reset.onclick = () => { newGame() }
 
 function newGame() {
-    turn = true
+    // turn = true
     count = 0
     message.innerText = ''
     board.forEach((el) => el.fill(0))
