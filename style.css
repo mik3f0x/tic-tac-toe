@@ -21,10 +21,50 @@
     background-color: black;
 }
 
-#r0c1, #r1c1, #r2c1, #r0c2, #r1c2, #r2c2 {
-    border-left: solid 4px white;
+#r1c1 {
+    border: solid 4px white;
 }
 
-#r0c0, #r0c1, #r0c2, #r1c0, #r1c1, #r1c2 {
-    border-bottom: solid 4px white;
+#r0c1 {
+    border-left: solid 4px white;
+    border-right: solid 4px white;
+    border-image: linear-gradient(to top, white, rgba(0, 0, 0, 0)) 1;
 }
+
+#r1c0 {
+    border-top: solid 4px white;
+    border-bottom: solid 4px white;
+    border-image: linear-gradient(to left, white, rgba(0, 0, 0, 0)) 1;  
+}
+
+#r1c2 {
+    border-top: solid 4px white;
+    border-bottom: solid 4px white;
+    border-image: linear-gradient(to right, white, rgba(0, 0, 0, 0)) 1;  
+}
+
+#r2c1 {
+    border-left: solid 4px white;
+    border-right: solid 4px white;
+    border-image: linear-gradient(to bottom, white, rgba(0, 0, 0, 0)) 1;  
+}
+
+
+/* , #r2c1, #r0c2, #r1c2, #r2c2 {
+    border-image: 
+    linear-gradient(
+      to top, 
+      red, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+}
+
+#r0c0, #r0c1, #r0c2, #r1c0, #r1c2 {
+    border-bottom: solid 4px white;
+    border-image: 
+    linear-gradient(
+      to left, 
+      red, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+} */
