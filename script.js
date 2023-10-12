@@ -5,7 +5,7 @@ const board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
 let turn = true
 let count = 0
-const delay = 2500
+const delay = 3000
 
 const square = document.querySelectorAll(".square")
 const reset = document.getElementById("reset")
