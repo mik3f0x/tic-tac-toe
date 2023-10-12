@@ -32,10 +32,10 @@ newGame();
 
 function winTest(row, col, xo) {
     xo = xo * 3
-    if (board[row][0] + board[row][1] + board[row][2] === xo) return true
-    else if (board[0][col] + board[1][col] + board[2][col] === xo) return true
-    else if (board[0][0] + board[1][1] + board[2][2] === xo) return true
-    else if (board[0][2] + board[1][1] + board[2][0] === xo) return true
+    if ((board[row][0] + board[row][1] + board[row][2] === xo) ||
+    (board[0][col] + board[1][col] + board[2][col] === xo) ||
+    (board[0][0] + board[1][1] + board[2][2] === xo) ||
+    (board[0][2] + board[1][1] + board[2][0] === xo)) return true
     else return false
 }
 
