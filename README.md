@@ -6,14 +6,14 @@ Tic-Tac-Toe, with an option to auto-restart the game on completion
 
 Written in HTML, CSS, and JavaScript 
 
-Win status is determined by assigning an arbitrary int to each of the two players populating the board, as a two-dimensional array, with these values on each turn.
+Win status is determined by assigning an arbitrary int to each of the two players. The board, a two-dimensional array, is populated with these values on each turn.
 
 ```
 const x = 1
 const o = 5
 ```
 
-On each turn, a test is performed to find the sums off all possible winning triplets and see if any match the active player’s hard-coded int*3
+A test is then performed that sums each the four potential winning triplets and sees if any match the active player’s hard-coded int*3
 
 ```
 function winTest(row, col, xo) {
