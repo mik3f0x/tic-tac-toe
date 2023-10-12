@@ -48,7 +48,7 @@ function handleClick(e) {
     const col = parseInt(e.target.id.charAt(3))
 
     if (turn) {
-        e.target.style.backgroundImage = "url(red_x.jpeg)"
+        e.target.style.backgroundImage = "url(images/red_x.jpeg)"
         board[row][col] = x
         if (winTest(row, col, x)) {
             message.innerText = 'X WINS!'
@@ -62,9 +62,8 @@ function handleClick(e) {
         }
         turn = false
         if (count < 9) message.innerText = "It's O's turn"
-    }
-    else {
-        e.target.style.backgroundImage = "url(blue_o.jpeg)"
+    } else {
+        e.target.style.backgroundImage = "url(images/blue_o.jpeg)"
         board[row][col] = o
         if (winTest(row, col, o)) {
             message.innerText = 'O WINS!'
